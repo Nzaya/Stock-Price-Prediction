@@ -11,11 +11,16 @@ import numpy as np
 from dash.dependencies import  Input, Output
 from keras.models import load_model
 from sklearn.preprocessing import MinMaxScaler
+from keras.models import Sequential
+from keras.layers import LSTM,Dropout,Dense
+from sklearn.preprocessing import MinMaxScaler
 
 app = dash.Dash()
 server = app.server
 
-pd.read_csv('/content/stock_data.csv')
+df=pd.read_csv('stock_data.csv')
+train_data = pd.read_csv('train_data.csv')
+valid_data = pd.read_csv('valid_data.csv')
 
 app.layout = html.Div([
    
